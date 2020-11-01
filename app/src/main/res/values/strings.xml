@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">OrderHotDrink</string>
+    <string name="logo">Logo</string>
+    <string name="welcome">Добро пожаловать!</string>
+    <string name="enter_your_name">Введите ваше имя</string>
+    <string name="enter_password">Введите пароль</string>
+    <string name="make_an_order">Сделать заказ</string>
+    <string name="pass_555">pass:555</string>
+    <string name="login_failed">Ошибка входа</string>
+    <string name="greeting">Привет, %s! Выберете напиток:</string>
+    <string name="tea">Чай</string>
+    <string name="coffee">Кофе</string>
+    <string name="text_view_additives">Что добавить в ваш %s</string>
+    <string name="cbMilk">Молоко</string>
+    <string name="cbSugar">Сахар</string>
+    <string name="cbLemon">Лимон</string>
+</resources>
