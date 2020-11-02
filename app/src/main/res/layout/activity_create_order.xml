@@ -10,9 +10,9 @@
         android:id="@+id/textViewGreeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="@string/greeting"
         android:textSize="25sp"
-        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,17 +30,17 @@
 
         <RadioButton
             android:id="@+id/rbTea"
-            android:checked="true"
-            android:onClick="onClickChangeDrink"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="true"
+            android:onClick="onClickChangeDrink"
             android:text="@string/tea" />
 
         <RadioButton
             android:id="@+id/rbCoffee"
-            android:onClick="onClickChangeDrink"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onClickChangeDrink"
             android:text="@string/coffee" />
     </RadioGroup>
 
@@ -49,9 +49,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:gravity="center"
         android:text="@string/text_view_additives"
         android:textSize="25sp"
-        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
@@ -92,37 +92,39 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/choose_the_type_of_drink"
-        app:layout_constraintEnd_toEndOf="parent"
         android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxSugar" />
 
     <Spinner
         android:id="@+id/spinnerTea"
-        android:entries="@array/type_tea"
-        android:visibility="visible"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:entries="@array/type_tea"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
     <Spinner
         android:id="@+id/spinnerCoffee"
-        android:entries="@array/type_coffee"
-        android:visibility="invisible"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:entries="@array/type_coffee"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <Button
         android:id="@+id/button2"
-        android:onClick="onClickCreateOrder"
         android:layout_width="0dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
+        android:onClick="onClickCreateOrder"
         android:text="@string/make_order"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -17,6 +17,7 @@ public class CreateOrderActivity extends AppCompatActivity {
     private int DRINK_COFFEE_ID = 2;
 
     private TextView textViewGreeting;
+    private TextView textViewAdditives;
     private Spinner spinnerTea;
     private Spinner spinnerCoffee;
     private CheckBox checkBoxLemon;
@@ -38,6 +39,7 @@ public class CreateOrderActivity extends AppCompatActivity {
 
         textViewGreeting = findViewById(R.id.textViewGreeting);
         textViewGreeting.setText(String.format(getResources().getString(R.string.greeting), name));
+        textViewAdditives = findViewById(R.id.textViewAdditives);
         spinnerTea = findViewById(R.id.spinnerTea);
         spinnerCoffee = findViewById(R.id.spinnerCoffee);
         checkBoxLemon = findViewById(R.id.checkBoxLemon);
@@ -78,6 +80,7 @@ public class CreateOrderActivity extends AppCompatActivity {
         spinnerCoffee.setVisibility(View.INVISIBLE);
         checkBoxLemon.setVisibility(View.VISIBLE);
         selectedDrink = DRINK_TEA_ID;
+        textViewAdditives.setText(String.format( getString(R.string.text_view_additives), "Чай"));
     }
     private void selectedCoffee(){
         spinnerTea.setVisibility(View.INVISIBLE);
@@ -85,11 +88,11 @@ public class CreateOrderActivity extends AppCompatActivity {
         checkBoxLemon.setVisibility(View.INVISIBLE);
         checkBoxLemon.setChecked(false);
         selectedDrink = DRINK_COFFEE_ID;
+        textViewAdditives.setText(String.format( getString(R.string.text_view_additives), "Кофе"));
 
     }
 
     public void onClickCreateOrder(View view) {
-        StringBuilder orderBuilder = new StringBuilder();
         String drink = getResources().getString(R.string.tea);
         String typeDrink = " ";
         if(selectedDrink == DRINK_TEA_ID){
@@ -99,7 +102,6 @@ public class CreateOrderActivity extends AppCompatActivity {
             drink = getResources().getString(R.string.coffee);
             typeDrink = spinnerCoffee.getSelectedItem().toString();
         }
-        orderBuilder.append("Напиток : " + drink + "\n");
         StringBuilder additives = new StringBuilder();
         if(checkBoxMilk.isChecked()){
             additives.append(getResources().getText(R.string.cbMilk)).append(" ");
@@ -110,14 +112,13 @@ public class CreateOrderActivity extends AppCompatActivity {
         if(checkBoxLemon.isChecked()){
             additives.append(getResources().getText(R.string.cbLemon)).append(" ");
         }
-        orderBuilder.append("Добавки : ");
-        orderBuilder.append(additives);
-        orderBuilder.append("\n");
-        orderBuilder.append("Тип напитка : ");
-        orderBuilder.append(typeDrink);
+
+        String order = "Напиток: " + drink + "\n" + "Тип напитка: " + typeDrink + "\n" + "Добавки: " + additives;
+
+        Log.d("tag1", order);
 
         Intent intent = new Intent(this, OrderDetailsActivity.class);
-        intent.putExtra("order", orderBuilder.toString());
+        intent.putExtra("order", order);
         startActivity(intent);
     }
 }
